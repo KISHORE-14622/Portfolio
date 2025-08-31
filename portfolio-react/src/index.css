@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS for specific animations and effects */
+@layer base {
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 text-sm font-semibold tracking-wider text-light bg-primary border-2 border-transparent rounded-full transition-all duration-300 ease-out;
+    box-shadow: inset 0 0 0 50px theme('colors.primary');
+  }
+  
+  .btn-primary:hover {
+    @apply text-primary bg-transparent border-primary;
+    box-shadow: inset 0 0 0 0 theme('colors.primary');
+  }
+  
+  .section-header-line::before {
+    content: "";
+    @apply absolute h-0.5 top-3 -left-8 right-0 bg-primary -z-10;
+  }
+  
+  .section-header-line::after {
+    content: "";
+    @apply absolute w-0.5 h-0.5 top-3 left-1 bg-primary z-10;
+  }
+  
+  .progress-bar {
+    @apply h-2.5 bg-primary rounded-full transition-all duration-1000 ease-out;
+  }
+  
+  .timeline-line::after {
+    content: '';
+    @apply absolute w-0.5 bg-blue-300 top-0 bottom-0 left-1/2 -ml-px;
+  }
+  
+  .timeline-dot::after {
+    content: '';
+    @apply absolute w-4 h-4 top-12 -right-2 bg-gray-200 border-2 border-purple-600 rounded-full z-10;
+  }
+  
+  .timeline-dot.right::after {
+    @apply -left-2;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .bg-hero {
+    background: linear-gradient(rgba(161, 4, 179, 0.95), rgba(239, 35, 60, 0.95));
+  }
+  
+  .animate-typing {
+    overflow: hidden;
+    border-right: 0.15em solid;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #EF233C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d70a0a;
+}
