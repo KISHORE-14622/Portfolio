@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import aboutImg from '../assets/about.jpg'
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -39,7 +40,7 @@ const About = () => {
               className="relative h-full"
             >
               <img 
-                src="/src/assets/about.jpg" 
+                src={aboutImg} 
                 alt="About Kishore Kumar" 
                 className="w-full h-full object-cover"
               />

@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import portfolio1 from '../assets/portfolio-1.jpg'
+import portfolio2 from '../assets/portfolio-2.jpg'
+import portfolio3 from '../assets/portfolio-3.jpg'
+import portfolio4 from '../assets/portfolio-4.jpg'
+import portfolio5 from '../assets/portfolio-5.jpg'
+import portfolio6 from '../assets/portfolio-6.jpg'
 
 const Portfolio = () => {
   const [ref, inView] = useInView({
@@ -15,42 +21,42 @@ const Portfolio = () => {
       id: 1,
       title: "E-learning Platform",
       category: "filter-1",
-      image: "/src/assets/portfolio-1.jpg",
+      image: portfolio1,
       link: "https://learningweb-5sih.onrender.com"
     },
     {
       id: 2,
       title: "ONLINE OD APPROVAL SYSTEM",
       category: "filter-2",
-      image: "/src/assets/portfolio-2.jpg",
+      image: portfolio2,
       link: "#"
     },
     {
       id: 3,
       title: "Tic-Tac-Toe Game",
       category: "filter-3",
-      image: "/src/assets/portfolio-3.jpg",
+      image: portfolio3,
       link: "#"
     },
     {
       id: 4,
       title: "Smart Calculator",
       category: "filter-3",
-      image: "/src/assets/portfolio-4.jpg",
+      image: portfolio4,
       link: "#"
     },
     {
       id: 5,
       title: "Stopwatch App",
       category: "filter-3",
-      image: "/src/assets/portfolio-5.jpg",
+      image: portfolio5,
       link: "#"
     },
     {
       id: 6,
       title: "Web Development Projects",
       category: "filter-1",
-      image: "/src/assets/portfolio-6.jpg",
+      image: portfolio6,
       link: "#"
     }
   ]

@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
+import heroBg from '../assets/hero-bg.jpg'
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -19,7 +20,7 @@ const Hero = () => {
       id="home" 
       className="relative w-full min-h-screen flex items-center justify-center bg-hero bg-center bg-cover bg-no-repeat"
       style={{
-        backgroundImage: `linear-gradient(rgba(161, 4, 179, 0.95), rgba(239, 35, 60, 0.95)), url('/src/assets/hero-bg.jpg')`
+        backgroundImage: `linear-gradient(rgba(161, 4, 179, 0.95), rgba(239, 35, 60, 0.95)), url(${heroBg})`
       }}
     >
       <div className="container mx-auto px-4 py-32">
