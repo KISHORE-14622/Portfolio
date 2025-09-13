@@ -26,17 +26,17 @@ const Portfolio = () => {
     },
     {
       id: 2,
-      title: "ONLINE OD APPROVAL SYSTEM",
+      title: "Trading Site",
       category: "filter-2",
       image: portfolio2,
-      link: "#"
+      link: "https://trading-site-701r.onrender.com"
     },
     {
       id: 3,
-      title: "Tic-Tac-Toe Game",
+      title: "Restaurant project",
       category: "filter-3",
       image: portfolio3,
-      link: "#"
+      link: "https://restuarant-frontend-kjeu.onrender.com"
     },
     {
       id: 4,
@@ -44,21 +44,8 @@ const Portfolio = () => {
       category: "filter-3",
       image: portfolio4,
       link: "#"
-    },
-    {
-      id: 5,
-      title: "Stopwatch App",
-      category: "filter-3",
-      image: portfolio5,
-      link: "#"
-    },
-    {
-      id: 6,
-      title: "Web Development Projects",
-      category: "filter-1",
-      image: portfolio6,
-      link: "#"
     }
+   
   ]
 
   const filterButtons = [
