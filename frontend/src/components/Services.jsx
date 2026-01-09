@@ -17,7 +17,7 @@ const Services = () => {
     },
     {
       icon: <FaLaptopCode className="text-6xl text-primary transition-all duration-300 group-hover:text-7xl" />,
-      title: "Backend Development", 
+      title: "Backend Development",
       description: "Developing robust server-side applications using Node.js, Express, and Java, with proper database integration and API development."
     },
     {
@@ -33,7 +33,7 @@ const Services = () => {
   ]
 
   return (
-    <section id="service" className="relative w-full py-16 bg-dark">
+    <section id="service" className="relative w-full py-16">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -42,11 +42,11 @@ const Services = () => {
           transition={{ duration: 0.8 }}
           className="section-header text-center mb-12"
         >
-          <p className="inline-block relative px-4 py-2 mb-4 text-sm font-semibold tracking-wider uppercase bg-pink-300 section-header-line">
+          <p className="inline-block relative px-4 py-2 mb-4 text-sm font-semibold tracking-wider uppercase text-primary">
             What I Do
           </p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-accent">
-            My Services
+          <h2 className="text-4xl lg:text-5xl font-bold text-white">
+            My <span className="gradient-text">Services</span>
           </h2>
         </motion.div>
 
@@ -73,7 +73,7 @@ const Services = () => {
 
               {/* Service Content */}
               <div className="service-text flex-1">
-                <h3 className="text-xl font-semibold mb-3 text-accent group-hover:text-white transition-colors duration-1000">
+                <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-white transition-colors duration-1000">
                   {service.title}
                 </h3>
                 <p className="text-base text-light group-hover:text-white transition-colors duration-1000 leading-relaxed">

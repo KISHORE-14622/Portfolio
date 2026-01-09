@@ -42,39 +42,32 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-cyan-400 shadow-lg py-2 px-15' 
-          : 'bg-transparent border-b border-white border-opacity-20 py-8 px-15'
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
+        ? 'bg-dark-card/80 backdrop-blur-md shadow-lg shadow-primary/20 py-3 border-b border-primary/20'
+        : 'bg-transparent border-b border-white/10 py-6'
+        }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div 
-            className={`text-4xl font-bold tracking-wider cursor-pointer transition-colors duration-300 ${
-              isScrolled ? 'text-primary' : 'text-white'
-            }`}
+          <div
+            className={`text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wider cursor-pointer transition-all duration-300 ${isScrolled ? 'text-white' : 'text-white'
+              }`}
             onClick={() => scrollToSection('home')}
           >
-            PORTFOLIO
+            <span className="gradient-text">PORTFOLIO</span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex space-x-6">
+          <div className="hidden lg:flex space-x-2 xl:space-x-4">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-6 py-3 text-lg font-semibold rounded-lg transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg ${
-                  isScrolled
-                    ? activeSection === item.id
-                      ? 'text-primary bg-white/20 shadow-md scale-105'
-                      : 'text-gray-700 hover:text-primary hover:bg-white/10'
-                    : activeSection === item.id
-                    ? 'text-gray-900 bg-white/20 shadow-md scale-105'
-                    : 'text-white hover:text-gray-900 hover:bg-white/10'
-                }`}
+                className={`px-4 xl:px-6 py-2 xl:py-3 text-base xl:text-lg font-semibold rounded-lg transform transition-all duration-300 ease-in-out hover:scale-105 ${activeSection === item.id
+                  ? 'text-white bg-gradient-to-r from-primary to-purple-glow shadow-lg shadow-primary/50'
+                  : 'gradient-text hover:text-white hover:bg-white/10'
+                  }`}
               >
                 {item.label}
               </button>
@@ -85,13 +78,21 @@ const Navbar = () => {
           <div className="lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-md transition-colors duration-300 ${
-                isScrolled ? 'text-primary' : 'text-white'
-              }`}
+              className={`p-2 rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary ${isScrolled
+                ? 'text-white'
+                : 'text-white'
+                }`}
+              aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              {isMobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
@@ -99,24 +100,26 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden mt-4 pb-4 bg-gray-100 rounded-lg shadow-lg"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden mt-4 pb-2 bg-dark-card/95 backdrop-blur-md rounded-lg shadow-xl shadow-primary/20 overflow-hidden border border-primary/20"
           >
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-6 py-3 text-lg font-semibold rounded-lg mx-2 mb-2 transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-md ${
-                  activeSection === item.id
-                    ? 'text-primary bg-primary/10 shadow-md scale-105'
-                    : 'text-gray-700 hover:text-primary hover:bg-primary/5'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`block w-full text-left px-4 py-3 text-base font-semibold rounded-lg transition-all duration-300 ease-in-out ${activeSection === item.id
+                    ? 'text-white bg-gradient-to-r from-primary to-purple-glow shadow-md'
+                    : 'gradient-text hover:text-white hover:bg-white/10'
+                    }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
           </motion.div>
         )}
       </div>

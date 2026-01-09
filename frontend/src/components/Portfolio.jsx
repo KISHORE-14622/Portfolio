@@ -27,25 +27,25 @@ const Portfolio = () => {
     {
       id: 2,
       title: "Trading Site",
-      category: "filter-2",
+      category: "filter-1",
       image: portfolio2,
       link: "https://trading-site-701r.onrender.com"
     },
     {
       id: 3,
-      title: "Restaurant project",
-      category: "filter-3",
+      title: "Restaurant Project",
+      category: "filter-1",
       image: portfolio3,
       link: "https://restuarant-frontend-kjeu.onrender.com"
     },
     {
       id: 4,
-      title: "Smart Calculator",
-      category: "filter-3",
+      title: "Garments Management",
+      category: "filter-1",
       image: portfolio4,
-      link: "#"
+      link: "https://vl-garments-g2q9.onrender.com"
     }
-   
+
   ]
 
   const filterButtons = [
@@ -55,12 +55,12 @@ const Portfolio = () => {
     { id: 'filter-3', label: 'Mini Projects' }
   ]
 
-  const filteredItems = activeFilter === '*' 
-    ? portfolioItems 
+  const filteredItems = activeFilter === '*'
+    ? portfolioItems
     : portfolioItems.filter(item => item.category === activeFilter)
 
   return (
-    <section id="portfolio" className="relative w-full py-16 bg-dark">
+    <section id="portfolio" className="relative w-full py-20">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -69,11 +69,11 @@ const Portfolio = () => {
           transition={{ duration: 0.8 }}
           className="section-header text-center mb-12"
         >
-          <p className="inline-block relative px-4 py-2 mb-4 text-sm font-semibold tracking-wider uppercase bg-pink-300 section-header-line">
+          <p className="inline-block relative px-6 py-2 mb-4 text-sm font-semibold tracking-wider uppercase text-primary">
             My Projects
           </p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-accent">
-            Portfolio Showcase
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-2">
+            Portfolio <span className="gradient-text">Showcase</span>
           </h2>
         </motion.div>
 
@@ -82,22 +82,16 @@ const Portfolio = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="portfolio-filter flex flex-wrap justify-center mb-8 gap-2"
+          className="portfolio-filter flex flex-wrap justify-center mb-12 gap-3"
         >
           {filterButtons.map((button) => (
             <button
               key={button.id}
               onClick={() => setActiveFilter(button.id)}
-              className={`px-4 py-2 text-sm font-semibold border-2 rounded-none transition-all duration-300 ${
-                activeFilter === button.id
-                  ? 'text-primary bg-transparent border-primary'
-                  : 'text-white bg-primary border-transparent hover:text-primary hover:bg-transparent hover:border-primary'
-              }`}
-              style={{
-                boxShadow: activeFilter === button.id 
-                  ? 'inset 0 0 0 0 #EF233C' 
-                  : 'inset 0 0 0 50px #EF233C'
-              }}
+              className={`px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ${activeFilter === button.id
+                ? 'text-white bg-gradient-to-r from-primary to-purple-glow shadow-lg shadow-primary/50 scale-105'
+                : 'text-light bg-dark-card border border-primary/20 hover:border-primary/50 hover:shadow-md hover:shadow-primary/30'
+                }`}
             >
               {button.label}
             </button>
@@ -105,7 +99,7 @@ const Portfolio = () => {
         </motion.div>
 
         {/* Portfolio Grid */}
-        <div ref={ref} className="portfolio-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={ref} className="portfolio-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item, index) => (
             <motion.div
               key={item.id}
@@ -115,36 +109,47 @@ const Portfolio = () => {
               layout
               className="portfolio-item group"
             >
-              <div className="portfolio-wrap relative w-full">
+              <div className="relative w-full h-full bg-dark-card rounded-2xl overflow-hidden border border-primary/20 hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/30 hover:-translate-y-2">
                 {/* Portfolio Image */}
-                <div className="portfolio-img relative overflow-hidden">
-                  <img 
-                    src={item.image} 
+                <div className="relative overflow-hidden h-56">
+                  <img
+                    src={item.image}
                     alt={item.title}
-                    className="w-full h-64 object-cover transform scale-110 transition-transform duration-500 group-hover:ml-4"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+                  {/* Dark overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-card via-dark-card/50 to-transparent opacity-60"></div>
                 </div>
 
-                {/* Portfolio Text */}
-                <div className="portfolio-text relative h-15 w-full -mt-8 mx-4 flex items-center bg-white shadow-lg z-10">
-                  <h3 className="flex-1 text-lg font-semibold text-gray-800 mx-4 whitespace-nowrap overflow-hidden">
-                    {item.title}
-                  </h3>
-                  
-                  {item.link !== '#' ? (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-12 h-12 flex items-center justify-center text-4xl font-thin btn-primary group-hover:text-primary group-hover:bg-transparent group-hover:border-primary"
-                    >
-                      +
-                    </a>
-                  ) : (
-                    <button className="w-12 h-12 flex items-center justify-center text-4xl font-thin btn-primary group-hover:text-primary group-hover:bg-transparent group-hover:border-primary">
-                      +
-                    </button>
-                  )}
+                {/* Gradient Overlay - Bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-primary/40 via-blue-glow/30 to-transparent pointer-events-none"></div>
+
+                {/* Content */}
+                <div className="relative p-6 backdrop-blur-sm">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-white flex-1">
+                      {item.title}
+                    </h3>
+
+                    {item.link !== '#' ? (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-purple-glow text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/50"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </a>
+                    ) : (
+                      <button className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-purple-glow text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/50">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>

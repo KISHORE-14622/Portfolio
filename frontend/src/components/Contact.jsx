@@ -53,7 +53,7 @@ const Contact = () => {
       ...prev,
       [name]: value
     }))
-    
+
     // Clear error for this field
     if (errors[name]) {
       setErrors(prev => ({
@@ -65,7 +65,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
+
     const formErrors = validateForm()
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors)
@@ -93,7 +93,7 @@ const Contact = () => {
 
       setSubmitMessage('Thank you! Your message has been sent successfully.')
       setFormData({ name: '', email: '', subject: '', message: '' })
-      
+
     } catch (error) {
       console.error('Email sending failed:', error)
       setSubmitMessage('Oops! Something went wrong. Please try again later or contact me directly at kishoresanthosh14622@gmail.com')
@@ -103,7 +103,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="relative w-full py-16 bg-black">
+    <section id="contact" className="relative w-full py-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap items-center">
           {/* Contact Info */}
@@ -115,7 +115,7 @@ const Contact = () => {
               className="contact-info"
             >
               <h2 className="text-3xl font-bold text-white mb-8">Get in Touch</h2>
-              
+
               <div className="contact-details space-y-4 mb-8">
                 <p className="flex items-center text-white text-lg">
                   <FaMapMarkerAlt className="mr-3 text-primary" />
@@ -132,17 +132,17 @@ const Contact = () => {
               </div>
 
               <div className="social flex space-x-4">
-                <a 
-                  href="https://www.linkedin.com/in/kishore-kumar-a9652828b/" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/kishore-kumar-a9652828b/"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-white text-xl hover:text-primary transition-colors duration-300"
                 >
                   <FaLinkedinIn />
                 </a>
-                <a 
-                  href="https://github.com/KISHORE-14622" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/KISHORE-14622"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-white text-xl hover:text-primary transition-colors duration-300"
                 >
@@ -161,11 +161,10 @@ const Contact = () => {
               className="contact-form"
             >
               {submitMessage && (
-                <div className={`mb-6 p-4 rounded ${
-                  submitMessage.includes('successfully') 
-                    ? 'bg-green-100 text-green-800 border border-green-300' 
+                <div className={`mb-6 p-4 rounded ${submitMessage.includes('successfully')
+                    ? 'bg-green-100 text-green-800 border border-green-300'
                     : 'bg-red-100 text-red-800 border border-red-300'
-                }`}>
+                  }`}>
                   {submitMessage}
                 </div>
               )}

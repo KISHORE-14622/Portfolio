@@ -11,9 +11,13 @@ const About = () => {
 
   const skills = [
     { name: 'HTML/CSS/JavaScript', percentage: 90 },
-    { name: 'React.js', percentage: 85 },
-    { name: 'Node.js/Express', percentage: 80 },
-    { name: 'Java', percentage: 75 }
+    { name: 'React.js + Vite', percentage: 85 },
+    { name: 'Tailwind CSS', percentage: 85 },
+    { name: 'Node.js/Express.js', percentage: 80 },
+    { name: 'RESTful APIs', percentage: 80 },
+    { name: 'MongoDB/SQL', percentage: 75 },
+    { name: 'Git & GitHub', percentage: 85 },
+    { name: 'Cloud Deployment (Render)', percentage: 75 }
   ]
 
   const scrollToContact = () => {
@@ -28,7 +32,7 @@ const About = () => {
   }
 
   return (
-    <section id="about" className="relative w-full py-16 bg-dark">
+    <section id="about" className="relative w-full py-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap items-center">
           {/* Image Section */}
@@ -39,9 +43,9 @@ const About = () => {
               transition={{ duration: 0.8 }}
               className="relative h-full"
             >
-              <img 
-                src={aboutImg} 
-                alt="About Kishore Kumar" 
+              <img
+                src={aboutImg}
+                alt="About Kishore Kumar"
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -57,11 +61,11 @@ const About = () => {
             >
               {/* Section Header */}
               <div className="section-header text-left mb-8">
-                <p className="inline-block relative px-4 py-2 mb-4 text-sm font-semibold tracking-wider uppercase bg-pink-300 section-header-line">
+                <p className="inline-block relative px-4 py-2 mb-4 text-sm font-semibold tracking-wider uppercase text-primary">
                   Learn About Me
                 </p>
-                <h2 className="text-4xl lg:text-5xl font-bold text-accent">
-                  Final Year Student & Web Developer
+                <h2 className="text-4xl lg:text-5xl font-bold text-white">
+                  Final Year Student & <span className="gradient-text">Web Developer</span>
                 </h2>
               </div>
 

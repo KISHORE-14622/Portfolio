@@ -9,6 +9,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import Loader from './components/Loader'
+import AnimatedBackground from './components/AnimatedBackground'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -27,7 +28,8 @@ function App() {
   }
 
   return (
-    <div className="App bg-dark text-light font-montserrat">
+    <div className="App text-light font-montserrat">
+      <AnimatedBackground />
       <Navbar />
       <Hero />
       <About />
