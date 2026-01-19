@@ -28,10 +28,10 @@ const ProfileCard = () => {
 
                 {/* Social Links */}
                 <div className="profile-social-modern">
-                    <a target="_blank" href="https://www.linkedin.com/in/your-profile" rel="noreferrer" className="social-link">
+                    <a target="_blank" href="https://www.linkedin.com/in/kishore-kumar-a9652828b/" rel="noreferrer" className="social-link">
                         <FaLinkedin />
                     </a>
-                    <a target="_blank" href="https://github.com/your-username" rel="noreferrer" className="social-link">
+                    <a target="_blank" href="https://github.com/KISHORE-14622" rel="noreferrer" className="social-link">
                         <FaGithub />
                     </a>
                 </div>
